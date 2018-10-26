@@ -1,3 +1,4 @@
+@import '~antd/dist/antd.css';
 .App {
   text-align: center;
 }
@@ -9,25 +10,23 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #222;
   height: 60px;
-  color: rgb(97,218,251);
+  color: white;
 }
-.App-title{
+
+.App-title {
   font-size: 1.5em;
-  padding-top: 16px;
-  margin: 0px;
   float: left;
-}
-.App-link {
   color: #61dafb;
+  padding-top: 16px;
+}
+
+.App-intro {
+  font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
