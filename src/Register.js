@@ -1,8 +1,10 @@
 import React from 'react';
-import { Form, Input, Button, Radio } from 'antd';
+import $ from 'jquery';
+
+import {API_ROOT} from "./constants";
+import { Form, Input, Button, Radio, message } from 'antd';
 const RadioGroup = Radio.Group
 const FormItem = Form.Item;
-
 
 
 class RegistrationForm extends React.Component {
@@ -16,6 +18,23 @@ class RegistrationForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        $.ajax({
+          url: `${API_ROOT}/signup`,
+          method: 'POST',
+          data: JSON.stringify({
+            email: values.email,
+            username: values.username,
+            password: values.password,
+            gender: values.gender,
+          })
+        }).then((response)=>{
+          message.success(response);
+          },
+          (error)=>{
+          message.error(error.responseText);
+          }).catch((e)=>{
+            console.log(e);
+        });
       }
     });
   }
@@ -131,7 +150,7 @@ class RegistrationForm extends React.Component {
           {...formItemLayout}
           label="Gender"
         >
-          {getFieldDecorator('radio-group')(
+          {getFieldDecorator('gender')(
             <RadioGroup>
               <Radio value="male">male</Radio>
               <Radio value="female">female</Radio>
