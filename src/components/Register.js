@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-import {API_ROOT} from "./constants";
+import {API_ROOT} from "../constants";
 import { Form, Input, Button, Radio, message } from 'antd';
 const RadioGroup = Radio.Group
 const FormItem = Form.Item;
