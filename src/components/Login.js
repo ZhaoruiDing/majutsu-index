@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
+import $ from 'jquery';
+import {API_ROOT} from "../constants";
 
 const FormItem = Form.Item;
 
@@ -10,6 +12,20 @@ class NormalLoginForm extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        $.ajax({
+          url: `${API_ROOT}/login`,
+          method:'POST',
+          data:JSON.stringify({
+            email: values.email,
+            password: values.password,
+          }),
+        }).then((response)=>{
+          message.success(response);
+        },(error)=>{
+          message.error(error.responseText);
+        }).catch((e)=>{
+          console.log(e);
+        });
       }
     });
   }
@@ -18,11 +34,33 @@ class NormalLoginForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
+
+
+        {/*<FormItem*/}
+          {/*//{...formItemLayout}*/}
+          {/*label="E-mail"*/}
+        {/*>*/}
+          {/*{getFieldDecorator('email', {*/}
+            {/*rules: [{*/}
+              {/*type: 'email', message: 'The input is not valid E-mail!',*/}
+            {/*}, {*/}
+              {/*required: true, message: 'Please input your E-mail!',*/}
+            {/*}],*/}
+          {/*})(*/}
+            {/*<Input />*/}
+          {/*)}*/}
+        {/*</FormItem>*/}
+
+
         <FormItem>
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: 'Please input your username!' }],
+          {getFieldDecorator('email', {
+            rules: [{
+              type: 'email', message: 'The input is not valid E-mail!',
+            }, {
+              required: true, message: 'Please input your E-mail!',
+            }],
           })(
-            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
           )}
         </FormItem>
         <FormItem>
@@ -33,6 +71,13 @@ class NormalLoginForm extends React.Component {
           )}
         </FormItem>
         <FormItem>
+          {getFieldDecorator('remember', {
+            valuePropName: 'checked',
+            initialValue: true,
+          })(
+            <Checkbox>Remember me</Checkbox>
+          )}
+          <a className="login-form-forgot" href="">Forgot password</a>
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
