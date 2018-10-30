@@ -3,7 +3,7 @@ import React from 'react';
 import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import $ from 'jquery';
 import {API_ROOT} from "../constants";
-
+import {Link} from 'react-router-dom';
 const FormItem = Form.Item;
 
 class NormalLoginForm extends React.Component {
@@ -81,7 +81,7 @@ class NormalLoginForm extends React.Component {
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
-          Or <a href="">register now!</a>
+          Or <Link to="/register">register now!</Link>
         </FormItem>
       </Form>
     );
