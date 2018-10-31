@@ -22,8 +22,8 @@ export class Gallery extends Component {
       PropTypes.shape({
         //user: PropTypes.string.isRequired,
         src: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        //id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        animeID: PropTypes.number.isRequired,
         watchstatus: PropTypes.number.isRequired,
         likestatus: PropTypes.number.isRequired,
         thumbnail: PropTypes.string.isRequired,
@@ -41,7 +41,7 @@ export class Gallery extends Component {
         ...image,
         customOverlay: (
           <div style={captionStyle}>
-            <div>{`${image.title}`}</div>
+            <div>{`${image.name}`}</div>
           </div>
         ),
       };

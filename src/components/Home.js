@@ -40,14 +40,26 @@ export class Home extends React.Component{
       console.log(this.state.animes);
       const images = this.state.animes.map((anime) => {
         return {
-          //: anime.user,
-          src: anime.url,
+          // //: anime.user,
+          // src: anime.url,
+          // thumbnail: anime.url,
+          // thumbnailWidth: 400,
+          // thumbnailHeight: 300,
+          // name: anime.name,
+          // likestatus:anime.likestatus,
+          // watchstatus: anime.watchstatus,
+          // animeID: anime.animeID,
+          // //caption: post.message,
+          src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
           thumbnail: anime.url,
           thumbnailWidth: 400,
           thumbnailHeight: 300,
-          title: anime.title,
-          likestatus:anime.likestatus,
-          watchstatus: anime.watchstatus,
+          name: anime.name,
+          //likestatus:anime.likestatus,
+          //watchstatus: anime.watchstatus,
+          likestatus: 0,
+          watchstatus: 0,
+          animeID: anime.animeID,
           //caption: post.message,
         }
       });
@@ -65,13 +77,17 @@ export class Home extends React.Component{
       const images = this.state.animes.map((anime) => {
         return {
           //: anime.user,
-          src: anime.url,
+          //src: anime.url,
+          src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
           thumbnail: anime.url,
           thumbnailWidth: 400,
           thumbnailHeight: 300,
-          title: anime.title,
-          likestatus:anime.likestatus,
-          watchstatus: anime.watchstatus,
+          name: anime.name,
+          //likestatus:anime.likestatus,
+          //watchstatus: anime.watchstatus,
+          likestatus: 0,
+          watchstatus: 0,
+          animeID: anime.animeID,
           //caption: post.message,
         }
       });
@@ -86,14 +102,26 @@ export class Home extends React.Component{
       const images = this.state.animes.map((anime) => {
         console.log("1111111");
         return {
-          //: anime.user,
-          src: anime.url,
+          // //: anime.user,
+          // src: anime.url,
+          // thumbnail: anime.url,
+          // thumbnailWidth: 400,
+          // thumbnailHeight: 300,
+          // name: anime.name,
+          // likestatus:anime.likestatus,
+          // watchstatus: anime.watchstatus,
+          // animeID: anime.animeID,
+          // //caption: post.message,
+          src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
           thumbnail: anime.url,
           thumbnailWidth: 400,
           thumbnailHeight: 300,
-          title: anime.title,
-          likestatus:anime.likestatus,
-          watchstatus: anime.watchstatus,
+          name: anime.name,
+          //likestatus:anime.likestatus,
+          //watchstatus: anime.watchstatus,
+          likestatus: 0,
+          watchstatus: 0,
+          animeID: anime.animeID,
           //caption: post.message,
         }
       });
