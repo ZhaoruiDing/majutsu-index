@@ -5,17 +5,17 @@ import {API_ROOT} from "../constants"
 
 export class WatchAndUnwatchButton extends React.Component{
   state ={
-    watchstatus: this.props.curAnime.watchstatus,
+    watchstatus: 0,
   }
 
   handleUnwatch = () => {
-    this.setState({watchstatus:(1-this.state.watchstatus)});
+    //this.setState({watchstatus:(1-this.state.watchstatus)});
     $.ajax({
       url:`${API_ROOT}/animes/watchstatus`,
       method: 'POST',
       data: JSON.stringify({
         email: localStorage.getItem("TOKEN_KEY"),
-        animeID: this.props.curAnime.id,
+        animeID: this.props.curAnime.animeID,
         watchstatus: 0,
       }),
     }).then((response)=>{
@@ -28,13 +28,13 @@ export class WatchAndUnwatchButton extends React.Component{
   }
 
   handleWatch = () => {
-    this.setState({watchstatus:(1-this.state.watchstatus)});
+    //this.setState({watchstatus:(1-this.state.watchstatus)});
     $.ajax({
-      url:`${API_ROOT}/animes/fav`,
+      url:`${API_ROOT}/animes/watchstatus`,
       method: 'POST',
       data: JSON.stringify({
         email: localStorage.getItem("TOKEN_KEY"),
-        animeID: this.props.curAnime.id,
+        animeID: this.props.curAnime.animeID,
         watchstatus: 1
       }),
     }).then((response)=>{

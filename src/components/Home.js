@@ -36,7 +36,7 @@ export class Home extends React.Component{
       return <Spin tip="LoadingAnimes..."/>;
     }
     else if (this.state.animes && this.state.animes.length > 0) {
-      console.log(this.state.animes);
+      // console.log(this.state.animes);
       console.log(this.state.animes);
       const images = this.state.animes.map((anime) => {
         return {
@@ -51,7 +51,7 @@ export class Home extends React.Component{
           // animeID: anime.animeID,
           // //caption: post.message,
           src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
-          thumbnail: anime.url,
+          thumbnail: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
           thumbnailWidth: 400,
           thumbnailHeight: 300,
           name: anime.name,
@@ -140,7 +140,8 @@ export class Home extends React.Component{
         method: 'GET',
         headers: {},
     }).then((response)=>{
-        this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
+        response = JSON.parse(response);
+        this.setState({animes: response || [], loadingAnimes: false, error: ''});
         console.log(response);
       }, (error) => {
         this.setState({ loadingAnimes: false, error: error.responseText });

@@ -5,18 +5,19 @@ import {API_ROOT} from "../constants"
 
 export class LikeAndUnlikeButton extends React.Component{
   state ={
-    likestatus: this.props.curAnime.likestatus,
+    likestatus: 0
+    //this.props.curAnime.likestatus,
   }
 
   handleDislike = () => {
-    this.setState({likestatus:(1-this.state.likestatus)});
+    //this.setState({likestatus:(1-this.state.likestatus)});
     $.ajax({
       url:`${API_ROOT}/animes/fav`,
       method: 'POST',
       data: JSON.stringify({
         email: localStorage.getItem("TOKEN_KEY"),
-        animeID: this.props.curAnime.id,
-        action: 1
+        animeID: this.props.curAnime.animeID,
+        action: 0
       }),
     }).then((response)=>{
       this.setState({likestatus:(1-this.state.likestatus)});
@@ -28,14 +29,14 @@ export class LikeAndUnlikeButton extends React.Component{
   }
 
   handleLike = () => {
-    this.setState({likestatus:(1-this.state.likestatus)});
+    //this.setState({likestatus:(1-this.state.likestatus)});
     $.ajax({
       url:`${API_ROOT}/animes/fav`,
       method: 'POST',
       data: JSON.stringify({
         email: localStorage.getItem("TOKEN_KEY"),
-        animeID: this.props.curAnime.id,
-        action: 0
+        animeID: this.props.curAnime.animeID,
+        action: 1
       }),
     }).then((response)=>{
       this.setState({likestatus:(1-this.state.likestatus)});
