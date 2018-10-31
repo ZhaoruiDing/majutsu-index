@@ -11,6 +11,7 @@ class App extends Component {
   }
   handleLogin = (token)=>{
     localStorage.setItem('TOKEN_KEY', token);
+    //localStorage.setItem('UserEmail', email);
     this.setState({isLoggedIn: true});
   }
   handleLogout=()=>{
