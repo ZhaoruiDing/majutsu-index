@@ -59,7 +59,7 @@ export class Gallery extends Component {
           customControls={[
             //<button key="deleteImage" onClick={this.deleteImage}>Delete Image</button>,
             <div>
-              <LikeAndUnlikeButton curAnime={this.state.animes[this.state.currentAnime]}/>
+              <LikeAndUnlikeButton curAnime={this.state.animes[this.state.currentAnime]} curTab={this.props.curTab} loadFavoriteAnimes = {this.props.loadFavoriteAnimes}/>
               <WatchAndUnwatchButton curAnime={this.state.animes[this.state.currentAnime]}/>
             </div>
 

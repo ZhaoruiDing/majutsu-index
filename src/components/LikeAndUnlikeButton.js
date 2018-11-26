@@ -21,6 +21,7 @@ export class LikeAndUnlikeButton extends React.Component{
       }),
     }).then((response)=>{
       this.setState({likestatus:(1-this.state.likestatus)});
+      this.props.loadFavoriteAnimes();
     }, (error)=>{
       console.log(error);
     }).catch((e)=>{
@@ -39,6 +40,7 @@ export class LikeAndUnlikeButton extends React.Component{
         action: 1
       }),
     }).then((response)=>{
+      this.props.loadFavoriteAnimes();
       this.setState({likestatus:(1-this.state.likestatus)});
     }, (error)=>{
       console.log(error);

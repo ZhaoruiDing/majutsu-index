@@ -4,31 +4,33 @@ import $ from 'jquery';
 import {API_ROOT, TOKEN_KEY} from "../constants"
 import { Gallery} from './Gallery';
 import {dummy_animes} from '../constants'
+import {search_dummy_animes} from "../constants"
+import {SearchBar} from "./SearchBar"
 const TabPane = Tabs.TabPane;
-function callback(key) {
-  console.log(key);
-}
+
 
 
 export class Home extends React.Component{
 
   state = {
     animes: [],
-    // favAnimes: [],
-    // recommendAnimes: [],
+    favAnimes: [],
+    recommendAnimes: [],
     error:'',
     loadingAnimes: false,
     loadingFavAnimes: false,
     loadingRecommendAnimes: false,
+    curTab: "all" //all, fav, rec
   }
 
   componentDidMount(){
     this.loadAnimes();
-    // this.loadFavoriteAnimes();
-    // this.loadRecommendAnimes();
+    this.loadFavoriteAnimes();
+    this.loadRecommendAnimes();
   }
 
   getGalleryPanelContentAllAnime = () => {
+    //this.setState({curTab: "all"});
     if (this.state.error) {
       return <div>{this.state.error}</div>;
     }
@@ -64,7 +66,11 @@ export class Home extends React.Component{
         }
       });
 
-      return <Gallery images={images} galleryType="All" animes={this.state.animes}/>;
+      return <Gallery images={images} galleryType="All" animes={this.state.animes}
+                      loadAnimes={this.loadAnimes}
+                      loadFavoriteAnimes={this.loadFavoriteAnimes}
+                      loadRecommendAnimes = {this.loadRecommendAnimes}
+                      curTab = "all"/>;
     }
     else {
       console.log("sqsqsq111111");
@@ -73,8 +79,9 @@ export class Home extends React.Component{
   }
 
   getGalleryPanelContentFavAnimes = () => {
-    if (this.state.animes && this.state.animes.length > 0) {
-      const images = this.state.animes.map((anime) => {
+    //this.setState({curTab: "fav"});
+    if (this.state.favAnimes && this.state.favAnimes.length > 0) {
+      const images = this.state.favAnimes.map((anime) => {
         return {
           //: anime.user,
           //src: anime.url,
@@ -91,16 +98,22 @@ export class Home extends React.Component{
           //caption: post.message,
         }
       });
-      return <Gallery images={images} galleryType="Fav" animes={this.state.animes}/>;
+      return <Gallery images={images} galleryType="Fav" animes={this.state.favAnimes}
+                      loadAnimes={this.loadAnimes}
+                      loadFavoriteAnimes={this.loadFavoriteAnimes}
+                      loadRecommendAnimes = {this.loadRecommendAnimes}
+                      curTab = "fav"/>;
     }
     else {
       return null;
     }
   }
   getGalleryPanelContentRecommendAnimes = () => {
-    if (this.state.animes && this.state.animes.length > 0) {
-      const images = this.state.animes.map((anime) => {
-        console.log("1111111");
+
+    if (this.state.recommendAnimes && this.state.recommendAnimes.length > 0) {
+      //this.setState({curTab: "rec"});
+      const images = this.state.recommendAnimes.map((anime) => {
+        console.log("gagaggaaga");
         return {
           // //: anime.user,
           // src: anime.url,
@@ -125,7 +138,12 @@ export class Home extends React.Component{
           //caption: post.message,
         }
       });
-      return <Gallery images={images} galleryType="Fav" animes={this.state.animes}/>;
+
+      return <Gallery images={images} galleryType="Rec" animes={this.state.recommendAnimes}
+                      loadAnimes={this.loadAnimes}
+                      loadFavoriteAnimes={this.loadFavoriteAnimes}
+                      loadRecommendAnimes = {this.loadRecommendAnimes}
+                      curTab = "rec"/>;
     }
     else {
       return null;
@@ -140,8 +158,9 @@ export class Home extends React.Component{
         method: 'GET',
         headers: {},
     }).then((response)=>{
-        response = JSON.parse(response);
-        this.setState({animes: response || [], loadingAnimes: false, error: ''});
+          this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
+        // response = JSON.parse(response);
+        // this.setState({animes: response || [], loadingAnimes: false, error: ''});
         console.log(response);
       }, (error) => {
         this.setState({ loadingAnimes: false, error: error.responseText });
@@ -160,10 +179,12 @@ export class Home extends React.Component{
       method: 'GET',
       headers: {},
     }).then((response)=>{
-        this.setState({animes: response, loadingFavAnimes: false, error: ''});
-        console.log(response);
+        this.setState({favAnimes: dummy_animes, loadingFavAnimes: false, error: ''});
+      console.log(this.state.favAnimes)
       }, (error) => {
-        this.setState({ loadingFavAnimes: false, error: error.responseText});
+        //this.setState({ loadingFavAnimes: false, error: error.responseText});
+      // response = JSON.parse(response);
+      // this.setState({animes: response || [], loadingAnimes: false, error: ''});
         console.log(error);
       }
     ).catch((error)=>{
@@ -175,12 +196,14 @@ export class Home extends React.Component{
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     this.setState({loadingRecommendAnimes: true, error:''});
     $.ajax({
-      url: `${API_ROOT}/fav?UserEmail=${UserEmail}`,
+      url: `${API_ROOT}/rec?UserEmail=${UserEmail}`,
       method: 'GET',
       headers: {},
     }).then((response)=>{
-        this.setState({animes: response, loadingRecommendAnimes: false, error: ''});
+        this.setState({recommendAnimes: dummy_animes, loadingRecommendAnimes: false, error: ''});
         console.log(response);
+      // response = JSON.parse(response);
+      // this.setState({animes: response || [], loadingAnimes: false, error: ''});
       }, (error) => {
         this.setState({ loadingRecommendAnimes: false, error: error.responseText});
         console.log(error);
@@ -190,20 +213,51 @@ export class Home extends React.Component{
     });
   }
 
+  loadSearchResAll = (searchAnimes) =>{
+      this.setState({animes: search_dummy_animes});
+  }
+
+  loadSearchResFav = (searchAnimes)=>{
+    this.setState({favAnimes: search_dummy_animes});
+  }
+
+  loadSearchResRec = (searchAnimes)=>{
+    this.setState({recommendAnimes: search_dummy_animes});
+  }
+  callback = (key) => {
+    console.log(key);
+    if (key === "1"){
+      this.setState({curTab: "all"});
+    }
+    else if (key === "2"){
+      this.setState({curTab: "fav"});
+    }
+    else{
+      this.setState({curTab: "rec"});
+    }
+  }
   render(){
     return (
+      <div>
+      <SearchBar searchType = {this.state.curTab} loadSearchResAll={this.loadSearchResAll}
+                                                  loadSearchResFav={this.loadSearchResFav}
+                                                  loadSearchResRec={this.loadSearchResRec}
+                                                  loadAnimes={this.loadAnimes}
+                                                  loadFavoriteAnimes={this.loadFavoriteAnimes}
+                                                  loadRecommendAnimes={this.loadRecommendAnimes}/>
       <div className="main-tabs">
-        <Tabs defaultActiveKey="1" onChange={callback}>
+        <Tabs defaultActiveKey="1" onChange={this.callback}>
           <TabPane tab="Anime Gallery" key="1">
             {this.getGalleryPanelContentAllAnime()}
           </TabPane>
           <TabPane tab="Favorite" key="2">
-            {this.getGalleryPanelContentRecommendAnimes()}
-          </TabPane>
-          <TabPane tab="You may like" key="3">
             {this.getGalleryPanelContentFavAnimes()}
           </TabPane>
+          <TabPane tab="You may like" key="3">
+            {this.getGalleryPanelContentRecommendAnimes()}
+          </TabPane>
         </Tabs>,
+      </div>
       </div>
     );
   }
