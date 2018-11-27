@@ -268,7 +268,7 @@ export class Home extends React.Component{
     }).then((response)=>{
         //this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
         response = JSON.parse(response);
-        this.setState({wishAnimes: response || [], loadingAnimes: false, error: ''});
+        this.setState({wishAnimes: response || [], loadingWishAnimes: false, error: ''});
         console.log(response);
       }, (error) => {
         this.setState({ loadingWishAnimes: false, error: error.responseText });
