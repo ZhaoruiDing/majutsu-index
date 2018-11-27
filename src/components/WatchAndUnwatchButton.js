@@ -6,7 +6,7 @@ import {API_ROOT} from "../constants"
 export class WatchAndUnwatchButton extends React.Component{
   state ={
     // watchstatus: 0,
-    watchstatus: this.props.curAnime.watchstatus
+    watchstatus: this.props.curAnime.watchstatus || 0,
   }
 
 
@@ -43,8 +43,8 @@ export class WatchAndUnwatchButton extends React.Component{
         action: 1
       }),
     }).then((response)=>{
-      this.props.loadWishAnimes();
       this.setState({watchstatus:(1-this.state.watchstatus)});
+      this.props.loadWishAnimes();
     }, (error)=>{
       console.log(error);
     }).catch((e)=>{
