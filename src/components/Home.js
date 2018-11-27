@@ -159,9 +159,6 @@ export class Home extends React.Component{
         url: `${API_ROOT}/animes?UserEmail=${UserEmail}`,
         method: 'GET',
         headers: {},
-        data: JSON.stringify({
-          email: UserEmail,
-        })
     }).then((response)=>{
           //this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
         response = JSON.parse(response);
