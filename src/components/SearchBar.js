@@ -16,7 +16,8 @@ export class SearchBar extends React.Component {
 
   handleSearch = (value) => {
     const UserEmail = localStorage.getItem(TOKEN_KEY);
-    var searchRes = dummy_animes;
+    //var searchRes = dummy_animes;
+    var searchRes = [];
     $.ajax({
         url: `${API_ROOT}/search/${this.state.searchType}?UserEmail=${UserEmail}`,
         method: 'GET',
