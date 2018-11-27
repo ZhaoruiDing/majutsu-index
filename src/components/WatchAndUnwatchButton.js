@@ -5,8 +5,10 @@ import {API_ROOT} from "../constants"
 
 export class WatchAndUnwatchButton extends React.Component{
   state ={
-    watchstatus: 0,
+    // watchstatus: 0,
+    watchstatus: this.props.curAnime.watchstatus
   }
+
 
   handleUnwatch = () => {
     //this.setState({watchstatus:(1-this.state.watchstatus)});
@@ -16,10 +18,12 @@ export class WatchAndUnwatchButton extends React.Component{
       data: JSON.stringify({
         email: localStorage.getItem("TOKEN_KEY"),
         animeID: this.props.curAnime.animeID,
-        watchstatus: 0,
+        action: 0,
+        //watchstatus: 0,
       }),
     }).then((response)=>{
       this.setState({watchstatus:(1-this.state.watchstatus)});
+      this.props.loadWishAnimes();
     }, (error)=>{
       console.log(error);
     }).catch((e)=>{
@@ -35,9 +39,11 @@ export class WatchAndUnwatchButton extends React.Component{
       data: JSON.stringify({
         email: localStorage.getItem("TOKEN_KEY"),
         animeID: this.props.curAnime.animeID,
-        watchstatus: 1
+        // watchstatus: 1
+        action: 1
       }),
     }).then((response)=>{
+      this.props.loadWishAnimes();
       this.setState({watchstatus:(1-this.state.watchstatus)});
     }, (error)=>{
       console.log(error);
