@@ -177,7 +177,7 @@ export class Home extends React.Component{
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     this.setState({loadingFavAnimes: true, error:''});
     $.ajax({
-      url: `${API_ROOT}/fav?UserEmail=${UserEmail}`,
+      url: `${API_ROOT}/animes/fav?UserEmail=${UserEmail}`,
       method: 'GET',
       headers: {},
     }).then((response)=>{
@@ -199,7 +199,7 @@ export class Home extends React.Component{
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     this.setState({loadingRecommendAnimes: true, error:''});
     $.ajax({
-      url: `${API_ROOT}/rec?UserEmail=${UserEmail}`,
+      url: `${API_ROOT}/animes/rec?UserEmail=${UserEmail}`,
       method: 'GET',
       headers: {},
     }).then((response)=>{
