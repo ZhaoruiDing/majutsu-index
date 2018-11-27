@@ -86,9 +86,9 @@ export class Home extends React.Component{
       const images = this.state.favAnimes.map((anime) => {
         return {
           //: anime.user,
-          //src: anime.url,
-          src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
-          thumbnail: anime.url,
+          src: anime.imgLink,
+          //src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
+          thumbnail: anime.imgLink,
           thumbnailWidth: 400,
           thumbnailHeight: 300,
           name: anime.name,
