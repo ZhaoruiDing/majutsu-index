@@ -160,9 +160,9 @@ export class Home extends React.Component{
         method: 'GET',
         headers: {},
     }).then((response)=>{
-          this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
-        // response = JSON.parse(response);
-        // this.setState({animes: response || [], loadingAnimes: false, error: ''});
+          //this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
+        response = JSON.parse(response);
+        this.setState({animes: response || [], loadingAnimes: false, error: ''});
         console.log(response);
       }, (error) => {
         this.setState({ loadingAnimes: false, error: error.responseText });
@@ -181,12 +181,13 @@ export class Home extends React.Component{
       method: 'GET',
       headers: {},
     }).then((response)=>{
-        this.setState({favAnimes: dummy_animes, loadingFavAnimes: false, error: ''});
+        //this.setState({favAnimes: dummy_animes, loadingFavAnimes: false, error: ''});
+      response = JSON.parse(response);
+      this.setState({favAnimes: response || [], loadingFavAnimes: false, error: ''});
       console.log(this.state.favAnimes)
       }, (error) => {
         //this.setState({ loadingFavAnimes: false, error: error.responseText});
-      // response = JSON.parse(response);
-      // this.setState({animes: response || [], loadingAnimes: false, error: ''});
+
         console.log(error);
       }
     ).catch((error)=>{
@@ -202,10 +203,10 @@ export class Home extends React.Component{
       method: 'GET',
       headers: {},
     }).then((response)=>{
-        this.setState({recommendAnimes: dummy_animes, loadingRecommendAnimes: false, error: ''});
+        // this.setState({recommendAnimes: dummy_animes, loadingRecommendAnimes: false, error: ''});
         console.log(response);
-      // response = JSON.parse(response);
-      // this.setState({animes: response || [], loadingAnimes: false, error: ''});
+        response = JSON.parse(response);
+        this.setState({recommendAnimes: response || [], loadingRecommendAnimes: false, error: ''});
       }, (error) => {
         this.setState({ loadingRecommendAnimes: false, error: error.responseText});
         console.log(error);
