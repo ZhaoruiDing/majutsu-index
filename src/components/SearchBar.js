@@ -22,8 +22,9 @@ export class SearchBar extends React.Component {
         method: 'GET',
         name: value
       }).then((response)=>{
-        searchRes = response;
-        searchRes = dummy_animes;
+        response = JSON.parse(response);
+        searchRes = response || [];
+        //searchRes = dummy_animes;
     }, (error)=>{
         console.log(error);
     }

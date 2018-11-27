@@ -225,7 +225,9 @@ export class Home extends React.Component{
       method: 'GET',
       name: value
     }).then((response)=>{
-      this.setState({animes: search_dummy_animes});
+      console.log(response);
+      response = JSON.parse(response);
+      this.setState({animes: response || []});
       }, (error)=>{
         console.log(error);
       }
