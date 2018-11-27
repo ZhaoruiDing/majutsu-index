@@ -5,8 +5,8 @@ import {API_ROOT} from "../constants"
 
 export class LikeAndUnlikeButton extends React.Component{
   state ={
-    likestatus: 0
-    //this.props.curAnime.likestatus,
+    //likestatus: 0
+    likestatus: this.props.curAnime.likestatus,
   }
 
   handleDislike = () => {
