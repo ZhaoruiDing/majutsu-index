@@ -17,14 +17,22 @@ export class SearchBar extends React.Component {
   handleSearch = (value) => {
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     //var searchRes = dummy_animes;
-    var searchRes = [];
+    //var searchRes = [];
     $.ajax({
         url: `${API_ROOT}/search/${this.state.searchType}?UserEmail=${UserEmail}&value=${value}`,
         method: 'GET',
         //name: value
       }).then((response)=>{
         response = JSON.parse(response);
-        searchRes = response || [];
+        response = response || [];
+        this.setState({
+          dataSource: !value ? [] : response.map(({animeID, name})=>
+            <Option key={animeID} value={name}>
+
+              <span>{name}</span>
+            </Option>
+          ),
+        });
         //searchRes = dummy_animes;
     }, (error)=>{
         console.log(error);
@@ -32,14 +40,14 @@ export class SearchBar extends React.Component {
     ).catch((error)=>{
       console.log(error);
     })
-    this.setState({
-      dataSource: !value ? [] : searchRes.map(({animeID, name})=>
-        <Option key={animeID} value={name}>
-
-          <span>{name}</span>
-        </Option>
-      ),
-    });
+    // this.setState({
+    //   dataSource: !value ? [] : response.map(({animeID, name})=>
+    //     <Option key={animeID} value={name}>
+    //
+    //       <span>{name}</span>
+    //     </Option>
+    //   ),
+    // });
   }
   onSelectFn = (value) => {
 
