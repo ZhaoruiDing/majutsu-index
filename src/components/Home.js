@@ -272,12 +272,14 @@ export class Home extends React.Component{
   loadSearchDateResAll = (month, year) => {
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     $.ajax({
-      url: `${API_ROOT}/search/rec?UserEmail=${UserEmail}`,
+      url: `${API_ROOT}/search/rec?UserEmail=${UserEmail}&year=${year}&month=${month}`,
       method: 'GET',
-      month: month,
-      year: year,
+      // month: month,
+      // year: year,
     }).then((response)=>{
-        this.setState({animes: search_dummy_animes});
+      console.log(response);
+      response = JSON.parse(response);
+      this.setState({animes: response || []});
       }, (error)=>{
         console.log(error);
       }
