@@ -19,7 +19,7 @@ export class SearchBar extends React.Component {
     //var searchRes = dummy_animes;
     var searchRes = [];
     $.ajax({
-        url: `${API_ROOT}/search/${this.state.searchType}?UserEmail=${UserEmail}?value=${value}`,
+        url: `${API_ROOT}/search/${this.state.searchType}?UserEmail=${UserEmail}&value=${value}`,
         method: 'GET',
         //name: value
       }).then((response)=>{

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d45d0c3d-307f-4c3f-802d-d2432c8caf4b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchBar.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -133,8 +132,8 @@
           <file leaf-file-name="SearchBar.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/SearchBar.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="600">
-                  <caret line="40" column="8" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+                <state relative-caret-position="525">
+                  <caret line="35" column="65" lean-forward="true" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -458,12 +457,12 @@
       <workItem from="1540927652147" duration="34258000" />
       <workItem from="1541009604065" duration="1118000" />
       <workItem from="1543197992209" duration="20396000" />
-      <workItem from="1543273612212" duration="13856000" />
+      <workItem from="1543273612212" duration="14347000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89253000" />
+    <option name="totallyTimeSpent" value="89744000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2056" y="-8" width="2064" height="1168" extended-state="6" />
@@ -908,8 +907,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/SearchBar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="8" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+        <state relative-caret-position="525">
+          <caret line="35" column="65" lean-forward="true" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
