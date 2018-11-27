@@ -6,6 +6,8 @@ import { Gallery} from './Gallery';
 import {dummy_animes} from '../constants'
 import {search_dummy_animes} from "../constants"
 import {SearchBar} from "./SearchBar"
+import {DateInput} from "./DateInput"
+
 const TabPane = Tabs.TabPane;
 
 
@@ -173,7 +175,7 @@ export class Home extends React.Component{
 
   loadFavoriteAnimes = () =>{
     const UserEmail = localStorage.getItem(TOKEN_KEY);
-    this.setState({loadingAnimes: true, error:''});
+    this.setState({loadingFavAnimes: true, error:''});
     $.ajax({
       url: `${API_ROOT}/fav?UserEmail=${UserEmail}`,
       method: 'GET',
@@ -213,16 +215,71 @@ export class Home extends React.Component{
     });
   }
 
-  loadSearchResAll = (searchAnimes) =>{
+  loadSearchResAll = (value) =>{
+    const UserEmail = localStorage.getItem(TOKEN_KEY);
+    $.ajax({
+      url: `${API_ROOT}/search/all?UserEmail=${UserEmail}`,
+      method: 'GET',
+      name: value
+    }).then((response)=>{
       this.setState({animes: search_dummy_animes});
+      }, (error)=>{
+        console.log(error);
+      }
+    ).catch((error)=>{
+      console.log(error);
+    })
+
   }
 
-  loadSearchResFav = (searchAnimes)=>{
-    this.setState({favAnimes: search_dummy_animes});
+  loadSearchResFav = (value)=>{
+    const UserEmail = localStorage.getItem(TOKEN_KEY);
+    $.ajax({
+      url: `${API_ROOT}/search/fav?UserEmail=${UserEmail}`,
+      method: 'GET',
+      name: value
+    }).then((response)=>{
+        this.setState({favAnimes: search_dummy_animes});
+      }, (error)=>{
+        console.log(error);
+      }
+    ).catch((error)=>{
+      console.log(error);
+    })
   }
 
-  loadSearchResRec = (searchAnimes)=>{
-    this.setState({recommendAnimes: search_dummy_animes});
+  loadSearchResRec = (value)=>{
+    const UserEmail = localStorage.getItem(TOKEN_KEY);
+    $.ajax({
+      url: `${API_ROOT}/search/rec?UserEmail=${UserEmail}`,
+      method: 'GET',
+      name: value
+    }).then((response)=>{
+        this.setState({recommendAnimes: search_dummy_animes});
+      }, (error)=>{
+        console.log(error);
+      }
+    ).catch((error)=>{
+      console.log(error);
+    })
+  }
+
+  loadSearchDateResAll = (month, year) => {
+    const UserEmail = localStorage.getItem(TOKEN_KEY);
+    $.ajax({
+      url: `${API_ROOT}/search/rec?UserEmail=${UserEmail}`,
+      method: 'GET',
+      month: month,
+      year: year,
+    }).then((response)=>{
+        this.setState({animes: search_dummy_animes});
+      }, (error)=>{
+        console.log(error);
+      }
+    ).catch((error)=>{
+      console.log(error);
+    })
+
   }
   callback = (key) => {
     console.log(key);
@@ -245,6 +302,8 @@ export class Home extends React.Component{
                                                   loadAnimes={this.loadAnimes}
                                                   loadFavoriteAnimes={this.loadFavoriteAnimes}
                                                   loadRecommendAnimes={this.loadRecommendAnimes}/>
+
+        {this.state.curTab === 'all' ? <DateInput loadSearchDateResAll={this.loadSearchDateResAll}/> : null}
       <div className="main-tabs">
         <Tabs defaultActiveKey="1" onChange={this.callback}>
           <TabPane tab="Anime Gallery" key="1">

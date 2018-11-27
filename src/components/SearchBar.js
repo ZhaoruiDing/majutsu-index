@@ -4,7 +4,9 @@ import $ from 'jquery';
 import {API_ROOT, TOKEN_KEY} from "../constants"
 import {dummy_animes} from "../constants"
 
-
+function onSelect(value) {
+  console.log('onSelect', value);
+}
 const Option = AutoComplete.Option;
 export class SearchBar extends React.Component {
   state = {
@@ -37,19 +39,26 @@ export class SearchBar extends React.Component {
       ),
     });
   }
-  onSelectFn = () => {
+  onSelectFn = (value) => {
 
     if (this.props.searchType === "all"){
-      console.log("ffefefefeffef");
+      console.log('onSelect', value);
       return this.props.loadSearchResAll;
     }
     else if (this.props.searchType === "fav"){
-
+      console.log('onSelect', value);
       return this.props.loadSearchResFav;
     }
     else{
+      console.log('onSelect', value);
       return this.props.loadSearchResRec;
     }
+    //console.log('onSelect', value);
+  }
+
+  onSelect = (value) => {
+    var targetFunction = this.onSelectFn(value);
+    targetFunction(value);
   }
 
   onChange = (value) => {
@@ -57,6 +66,7 @@ export class SearchBar extends React.Component {
       if (this.props.searchType === "all"){
         console.log("ffefefefeffef");
         this.props.loadAnimes();
+        console.log("loading");
       }
       else if (this.props.searchType === "fav"){
         this.props.loadFavoriteAnimes();
@@ -75,7 +85,8 @@ export class SearchBar extends React.Component {
         dataSource={dataSource}
         className={"search-bar"}
         size="large"
-        onSelect={this.onSelectFn()}
+        // onSelect={this.onSelectFn()}
+        onSelect={this.onSelect}
         onSearch={this.handleSearch}
         onChange={this.onChange}
         placeholder="Search Anime"
