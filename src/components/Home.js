@@ -19,7 +19,7 @@ export class Home extends React.Component{
     favAnimes: [],
     recommendAnimes: [],
     wishAnimes: [],
-    popularAnimes[],
+    popularAnimes: [],
     error:'',
     loadingAnimes: false,
     loadingFavAnimes: false,
