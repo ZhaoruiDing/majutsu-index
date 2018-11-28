@@ -1,12 +1,13 @@
 import React, { Component }from 'react';
-
+import ReactDOM from 'react-dom';
 import { Button, Menu, Dropdown, Icon, Radio } from 'antd';
 import {LikeAndUnlikeButton} from "./LikeAndUnlikeButton";
 import {WatchAndUnwatchButton} from "./WatchAndUnwatchButton";
 import PropTypes from 'prop-types';
 import GridGallery from 'react-grid-gallery';
-
-export class Gallery extends Component {
+import { Switch, Route, Redirect,withRouter} from 'react-router'
+import { browserHistory } from 'react-router'
+class GalleryLow extends Component {
 
   state = {
     animes: this.props.animes,
@@ -15,6 +16,8 @@ export class Gallery extends Component {
 
   onCurrentAnimeChange= (index)=>{
     this.setState({currentAnime: index});
+    //ReactDOM.render(<Redirect to="/detail"/>);
+
   }
 
   static propTypes = {
@@ -34,8 +37,10 @@ export class Gallery extends Component {
       })
     ).isRequired
   }
-  onSelectImage = (index, anime) =>{
-    console.log("hahahah I am selected");
+  onSelectImage = (index, animes) =>{
+    console.log(this.state.animes[index].animeID);
+    this.props.history.push(`/detail/${this.state.animes[index].animeID}`);
+    //加上id
   }
   render() {
     const images = this.props.images.map((image) => {
@@ -64,7 +69,7 @@ export class Gallery extends Component {
             //<button key="deleteImage" onClick={this.deleteImage}>Delete Image</button>,
             <div key={this.state.animes[this.state.currentAnime].animeID}>
               <LikeAndUnlikeButton curAnime={this.state.animes[this.state.currentAnime]} curTab={this.props.curTab} loadFavoriteAnimes = {this.props.loadFavoriteAnimes}/>
-              <WatchAndUnwatchButton curAnime={this.state.animes[this.state.currentAnime]} curTab={this.props.curTab} loadWishAnimes={this.props.loadWishAnimes}/>
+              {/*<WatchAndUnwatchButton curAnime={this.state.animes[this.state.currentAnime]} curTab={this.props.curTab} loadWishAnimes={this.props.loadWishAnimes}/>*/}
             </div>
 
 
@@ -95,3 +100,5 @@ const captionStyle = {
   padding: "2px",
   fontSize: "90%"
 };
+
+export const Gallery = withRouter(GalleryLow);

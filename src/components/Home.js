@@ -37,7 +37,7 @@ export class Home extends React.Component{
 
 
   getGalleryPanelContentAllAnime = () => {
-    //this.setState({curTab: "all"});
+    this.setState({curTab: "all"});
     if (this.state.error) {
       return <div>{this.state.error}</div>;
     }
@@ -63,7 +63,7 @@ export class Home extends React.Component{
           //src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
           //thumbnail: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
           thumbnail: anime.imageLink,
-          thumbnailWidth: 400,
+          thumbnailWidth: 200,
           thumbnailHeight: 300,
           name: anime.name,
           //likestatus:anime.likestatus,
@@ -80,7 +80,8 @@ export class Home extends React.Component{
                       loadFavoriteAnimes={this.loadFavoriteAnimes}
                       loadRecommendAnimes = {this.loadRecommendAnimes}
                       loadWishAnimes={this.loadWishAnimes}
-                      curTab = "all"/>;
+                      curTab = "all"
+                      history={this.props.history}/>;
     }
     else {
       console.log("sqsqsq111111");
@@ -89,7 +90,7 @@ export class Home extends React.Component{
   }
 
   getGalleryPanelContentFavAnimes = () => {
-    //this.setState({curTab: "fav"});
+    this.setState({curTab: "fav"});
     if (this.state.favAnimes && this.state.favAnimes.length > 0) {
       const images = this.state.favAnimes.map((anime) => {
         return {
@@ -97,7 +98,7 @@ export class Home extends React.Component{
           src: anime.imageLink,
           //src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
           thumbnail: anime.imageLink,
-          thumbnailWidth: 400,
+          thumbnailWidth: 200,
           thumbnailHeight: 300,
           name: anime.name,
           //likestatus:anime.likestatus,
@@ -120,9 +121,8 @@ export class Home extends React.Component{
     }
   }
   getGalleryPanelContentRecommendAnimes = () => {
-
+    this.setState({curTab: "rec"});
     if (this.state.recommendAnimes && this.state.recommendAnimes.length > 0) {
-      //this.setState({curTab: "rec"});
       const images = this.state.recommendAnimes.map((anime) => {
         console.log("gagaggaaga");
         return {
@@ -139,7 +139,7 @@ export class Home extends React.Component{
           src: anime.imageLink,
           //src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
           thumbnail: anime.imageLink,
-          thumbnailWidth: 400,
+          thumbnailWidth: 200,
           thumbnailHeight: 300,
           name: anime.name,
           //likestatus:anime.likestatus,
@@ -165,7 +165,7 @@ export class Home extends React.Component{
 
 
   getGalleryPanelContentWishAnimes = () => {
-    //this.setState({curTab: "fav"});
+    this.setState({curTab: "wish"});
     if (this.state.wishAnimes && this.state.wishAnimes.length > 0) {
       const images = this.state.wishAnimes.map((anime) => {
         return {
@@ -173,7 +173,7 @@ export class Home extends React.Component{
           src: anime.imageLink,
           //src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
           thumbnail: anime.imageLink,
-          thumbnailWidth: 400,
+          thumbnailWidth: 200,
           thumbnailHeight: 300,
           name: anime.name,
           //likestatus:anime.likestatus,
@@ -204,9 +204,9 @@ export class Home extends React.Component{
         method: 'GET',
         headers: {},
     }).then((response)=>{
-          this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
-        // response = JSON.parse(response);
-        // this.setState({animes: response || [], loadingAnimes: false, error: ''});
+          //this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
+         response = JSON.parse(response);
+         this.setState({animes: response || [], loadingAnimes: false, error: ''});
         console.log(response);
       }, (error) => {
         this.setState({ loadingAnimes: false, error: error.responseText });
@@ -360,7 +360,7 @@ export class Home extends React.Component{
   loadSearchDateResAll = (month, year) => {
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     $.ajax({
-      url: `${API_ROOT}/search/date?UserEmail=${UserEmail}&year=${year}&month=${month}`,
+      url: `${API_ROOT}/search/date?UserEmail=${UserEmail}&year=${toString(year)}&month=${toString(month)}`,
       method: 'GET',
       // month: month,
       // year: year,
@@ -403,16 +403,16 @@ export class Home extends React.Component{
         {this.state.curTab === 'all' ? <DateInput loadSearchDateResAll={this.loadSearchDateResAll}/> : null}
       <div className="main-tabs">
         <Tabs defaultActiveKey="1" onChange={this.callback}>
-          <TabPane tab="Anime Gallery" key="1">
+          <TabPane tab="Anime Gallery" key="1" curTab="all">
             {this.getGalleryPanelContentAllAnime()}
           </TabPane>
-          <TabPane tab="Favorite" key="2">
+          <TabPane tab="Favorite" key="2" curTab="fav">
             {this.getGalleryPanelContentFavAnimes()}
           </TabPane>
-          <TabPane tab="You may like" key="3">
+          <TabPane tab="You may like" key="3" curTab="rec">
             {this.getGalleryPanelContentRecommendAnimes()}
           </TabPane>
-          <TabPane tab="Wish List" key="4">
+          <TabPane tab="Wish List" key="4" curTab="wish">
             {this.getGalleryPanelContentWishAnimes()}
           </TabPane>
         </Tabs>,

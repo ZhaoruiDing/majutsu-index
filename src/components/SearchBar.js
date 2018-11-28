@@ -67,7 +67,7 @@ export class SearchBar extends React.Component {
   }
 
   onSelect = (value) => {
-    var targetFunction = this.onSelectFn(value);
+    var targetFunction = this.onSelectFn(this.props.searchType);
     targetFunction(value);
   }
 

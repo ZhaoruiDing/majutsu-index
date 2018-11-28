@@ -5,6 +5,7 @@
 @import "Home.css";
 @import "SearchBar.css";
 @import "DateInput.css";
+@import "DetailPage.css";
 .App {
   text-align: center;
 }

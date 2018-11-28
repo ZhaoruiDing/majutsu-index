@@ -2,6 +2,7 @@ import React from 'react';
 import {Register} from "./Register";
 import {Login} from "./Login";
 import {Home} from "./Home";
+import {DetailPage} from "./DetailPage"
 import { Switch, Route, Redirect } from 'react-router';
 export class Main extends React.Component {
   getLogin = ()=>{
@@ -22,6 +23,7 @@ export class Main extends React.Component {
         <Route path="/login" render={this.getLogin}/>
         <Route path="/home" render={this.getHome}/>
         <Route path="/register" component={Register}/>
+        <Route path="/detail/:id" component={DetailPage}/>
         <Route render={this.getLogin}/>
       </Switch>
     );
