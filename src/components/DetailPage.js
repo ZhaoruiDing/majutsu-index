@@ -28,7 +28,7 @@ export class DetailPage extends Component {
    director: "",
    tags: "",
    likestatus: 0,
-   watchstatus: "",
+   watchstatus: "0",
    rate: "",
    imageLink: "",
    userrate: 0,
@@ -148,10 +148,9 @@ export class DetailPage extends Component {
         />
 
         <div>
-          <h2 className="center-text">{this.props.Title}</h2>
+          <h2 className="center-text">{this.state.name}</h2>
 
           <ul className="info">
-            <li> <strong>Japanese Name:</strong> {this.props.JapName}</li>
             <li> <strong>Released Year:</strong> {this.state.releaseYear}</li>
             <li> <strong>Released Date:</strong> {this.state.releaseDate}</li>
             <li> <strong>Rating:</strong> {this.state.rate}</li>
@@ -162,21 +161,15 @@ export class DetailPage extends Component {
 
 
         <h3 className="text" >Watch Status: <Radio.Group defaultValue = {this.props.WatchStatus} buttonStyle="solid">
-          <Radio.Button onClick={this.SwitchStatus.bind(this, "0")} value="0">Interested</Radio.Button>
-          <Radio.Button onClick={this.SwitchStatus.bind(this, "1")} value="1">Watched</Radio.Button>
-          <Radio.Button onClick={this.SwitchStatus.bind(this, "2")} value="2">Aborted</Radio.Button>
-          <Radio.Button onClick={this.SwitchStatus.bind(this, "3")} value="3">Watching</Radio.Button>
+          <Radio.Button onClick={this.SwitchStatus.bind(this, "1")} value="1">Want to watch</Radio.Button>
+          <Radio.Button onClick={this.SwitchStatus.bind(this, "2")} value="2">Watching</Radio.Button>
+          <Radio.Button onClick={this.SwitchStatus.bind(this, "3")} value="3">Watched</Radio.Button>
+          <Radio.Button onClick={this.SwitchStatus.bind(this, "4")} value="4">Dropped</Radio.Button>
         </Radio.Group></h3>
 
         <h3 className="text" >Tags: {this.CreateTags()} </h3>
 
         <h3 className="text" >Your Rate: <Rate onChange={this.handleRateChange} value={this.state.userrate} /> </h3>
-
-        <div>
-          <h3 className="text" >Plot:</h3>
-          <p className="text" >{this.props.Plot}</p>
-        </div>
-
 
       </div>
 
@@ -186,7 +179,7 @@ export class DetailPage extends Component {
 }
 
 DetailPage.defaultProps = {
-  WatchStatus : "1",
+  WatchStatus : "0",
   Tags : ["love", "school", "youth"],
   Title : "Title",
   JapName : 2,
