@@ -24,7 +24,7 @@ export class DateInput extends React.Component{
       console.log(typeof (this.state.month));
       console.log(this.state.year);
       console.log(typeof (this.state.year));
-      this.props.loadSearchDateResAll();
+      this.props.loadSearchDateResAll(this.state.month, this.state.year);
     }
     render(){
       return (
