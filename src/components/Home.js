@@ -324,7 +324,7 @@ export class Home extends React.Component{
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     this.setState({loadPopularAnimes: true, error:''});
     $.ajax({
-      url: `${API_ROOT}/wish?UserEmail=${UserEmail}`,
+      url: `${API_ROOT}/animes/popular?UserEmail=${UserEmail}`,
       method: 'GET',
       headers: {},
     }).then((response)=>{
