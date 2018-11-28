@@ -27,14 +27,16 @@ export class Gallery extends Component {
         watchstatus: PropTypes.number.isRequired,
         likestatus: PropTypes.number.isRequired,
         thumbnail: PropTypes.string.isRequired,
-        // srcset: PropTypes.array,
+        srcset: PropTypes.array,
         // caption: PropTypes.string,
         thumbnailWidth: PropTypes.number.isRequired,
         thumbnailHeight: PropTypes.number.isRequired
       })
     ).isRequired
   }
-
+  onSelectImage = (index, anime) =>{
+    console.log("hahahah I am selected");
+  }
   render() {
     const images = this.props.images.map((image) => {
       return {
@@ -54,11 +56,13 @@ export class Gallery extends Component {
         <GridGallery
           backdropClosesModal
           images={images}
-          enableImageSelection={false}
+          //enableImageSelection={false}
+          enableImageSelection={true}
+          onSelectImage={this.onSelectImage}
           currentImageWillChange={this.onCurrentAnimeChange}
           customControls={[
             //<button key="deleteImage" onClick={this.deleteImage}>Delete Image</button>,
-            <div>
+            <div key={this.state.animes[this.state.currentAnime].animeID}>
               <LikeAndUnlikeButton curAnime={this.state.animes[this.state.currentAnime]} curTab={this.props.curTab} loadFavoriteAnimes = {this.props.loadFavoriteAnimes}/>
               <WatchAndUnwatchButton curAnime={this.state.animes[this.state.currentAnime]} curTab={this.props.curTab} loadWishAnimes={this.props.loadWishAnimes}/>
             </div>
