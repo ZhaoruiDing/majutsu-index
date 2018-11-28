@@ -49,6 +49,7 @@ export class DetailPage extends Component {
     }).then((response)=>{
         console.log(response);
         response = JSON.parse(response);
+        response = response[0];
         this.setState({
           animeID: response.animeID,
           name: response.name,
@@ -88,6 +89,7 @@ export class DetailPage extends Component {
       data:JSON.stringify({
         email: UserEmail,
         watchstatus: watchstatus,
+        animeID: this.state.animeID,
       }),
     }).then((response)=>{
 
@@ -114,6 +116,7 @@ export class DetailPage extends Component {
       data:JSON.stringify({
         email: UserEmail,
         rate: value,
+        animeID: this.animeID,
       }),
     }).then((response)=>{
       // message.success(response);
