@@ -20,7 +20,11 @@ export class DateInput extends React.Component{
       this.setState({year: value});
     }
     onClick = () =>{
-        this.props.loadSearchDateResAll();
+      console.log(this.state.month);
+      console.log(typeof (this.state.month));
+      console.log(this.state.year);
+      console.log(typeof (this.state.year));
+      this.props.loadSearchDateResAll();
     }
     render(){
       return (

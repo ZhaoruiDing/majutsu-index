@@ -360,7 +360,7 @@ export class Home extends React.Component{
   loadSearchDateResAll = (month, year) => {
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     $.ajax({
-      url: `${API_ROOT}/search/date?UserEmail=${UserEmail}&year=${toString(year)}&month=${toString(month)}`,
+      url: `${API_ROOT}/search/date?UserEmail=${UserEmail}&year=${year}&month=${month}`,
       method: 'GET',
       // month: month,
       // year: year,
