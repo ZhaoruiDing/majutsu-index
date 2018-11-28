@@ -18,7 +18,7 @@ export class DetailPage extends Component {
   // }
   //['animeID', 'name', 'imageLink', 'releaseDate', 'releaseYear', 'episode', 'studio', 'director', 'tags', 'likestatus', 'watchstatus' 'rate']
  state = {
-   animeID: this.props.match.params,
+   animeID: this.props.match.params.id,
    name: "",
    imageLink: "",
    releaseDate: "",
@@ -43,7 +43,7 @@ export class DetailPage extends Component {
     console.log(typeof(this.state.animeID));
     console.log(this.state.animeID);
     $.ajax({
-      url: `${API_ROOT}/detail?UserEmail=${UserEmail}&animeID=${toString(this.state.animeID.id)}`,
+      url: `${API_ROOT}/detail?UserEmail=${UserEmail}&animeID=${this.state.animeID}`,
       method: 'GET',
       // name: value
     }).then((response)=>{
