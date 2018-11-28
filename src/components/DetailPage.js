@@ -43,7 +43,7 @@ export class DetailPage extends Component {
     console.log(typeof(this.state.animeID));
     console.log(this.state.animeID);
     $.ajax({
-      url: `${API_ROOT}/detail?UserEmail=${UserEmail}&animeID=${toString(this.state.animeID)}`,
+      url: `${API_ROOT}/detail?UserEmail=${UserEmail}&animeID=${toString(this.state.animeID.id)}`,
       method: 'GET',
       // name: value
     }).then((response)=>{
