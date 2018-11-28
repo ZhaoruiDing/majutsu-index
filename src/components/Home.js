@@ -34,6 +34,7 @@ export class Home extends React.Component{
     this.loadFavoriteAnimes();
     this.loadRecommendAnimes();
     this.loadWishAnimes();
+    this.loadPopularAnimes();
   }
 
 
