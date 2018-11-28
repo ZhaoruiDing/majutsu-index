@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d45d0c3d-307f-4c3f-802d-d2432c8caf4b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/DateInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DateInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4181933">
+    <splitter split-orientation="horizontal" split-proportion="0.20277953">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
@@ -45,7 +45,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="WatchAndUnwatchButton.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="WatchAndUnwatchButton.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/WatchAndUnwatchButton.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="150">
@@ -87,10 +87,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DetailPage.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="DetailPage.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/DetailPage.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="804">
+                <state relative-caret-position="915">
                   <caret line="61" selection-start-line="61" selection-end-line="61" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
@@ -116,11 +116,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="DateInput.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="DateInput.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/DateInput.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="26" column="71" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
+                <state relative-caret-position="405">
+                  <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -149,11 +149,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Home.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/Home.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="256">
-                  <caret line="362" column="87" selection-start-line="362" selection-start-column="87" selection-end-line="362" selection-end-column="87" />
+                <state relative-caret-position="501">
+                  <caret line="487" column="12" lean-forward="true" selection-start-line="487" selection-start-column="12" selection-end-line="487" selection-end-column="12" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -231,10 +231,10 @@
       <find>value</find>
       <find>getGalleryPanelContentRecommendAnimes</find>
       <find>loadingAnimes</find>
-      <find>Detail</find>
       <find>searchType</find>
       <find>Date</find>
       <find>date</find>
+      <find>Detail</find>
     </findStrings>
     <replaceStrings>
       <replace>loadingRecommendAnimes</replace>
@@ -278,8 +278,8 @@
         <option value="$PROJECT_DIR$/src/components/SearchBar.js" />
         <option value="$PROJECT_DIR$/src/constants.js" />
         <option value="$PROJECT_DIR$/src/components/DetailPage.js" />
-        <option value="$PROJECT_DIR$/src/components/Home.js" />
         <option value="$PROJECT_DIR$/src/components/DateInput.js" />
+        <option value="$PROJECT_DIR$/src/components/Home.js" />
       </list>
     </option>
   </component>
@@ -435,12 +435,12 @@
       <workItem from="1541009604065" duration="1118000" />
       <workItem from="1543197992209" duration="20396000" />
       <workItem from="1543273612212" duration="25106000" />
-      <workItem from="1543372889583" duration="15621000" />
+      <workItem from="1543372889583" duration="16419000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116124000" />
+    <option name="totallyTimeSpent" value="116922000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -456,10 +456,10 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24548353" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24548353" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17552084" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17552084" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -740,16 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/WatchAndUnwatchButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/App.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -856,7 +846,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DetailPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="804">
+        <state relative-caret-position="915">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -875,10 +865,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+    <entry file="file://$PROJECT_DIR$/src/components/WatchAndUnwatchButton.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="362" column="87" selection-start-line="362" selection-start-column="87" selection-end-line="362" selection-end-column="87" />
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -887,8 +877,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DateInput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="71" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
+        <state relative-caret-position="405">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="487" column="12" lean-forward="true" selection-start-line="487" selection-start-column="12" selection-end-line="487" selection-end-column="12" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
