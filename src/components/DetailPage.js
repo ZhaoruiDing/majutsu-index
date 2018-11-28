@@ -30,6 +30,7 @@ export class DetailPage extends Component {
    likestatus: 0,
    watchstatus: "",
    rate: 0,
+   imageLink: "",
 
  }
 
@@ -39,8 +40,9 @@ export class DetailPage extends Component {
  }
   loadDetailPage = ()=>{
     const UserEmail = localStorage.getItem(TOKEN_KEY);
+    console.log(typeof(this.state.animeID));
     $.ajax({
-      url: `${API_ROOT}/detail?UserEmail=${UserEmail}&animeID=${this.state.animeID}`,
+      url: `${API_ROOT}/detail?UserEmail=${UserEmail}&animeID=${toString(this.state.animeID)}`,
       method: 'GET',
       // name: value
     }).then((response)=>{
@@ -58,6 +60,7 @@ export class DetailPage extends Component {
           likestatus: response.likestatus,
           watchstatus:response.watchstatus,
           rate: response.rate,
+          imageLink: response.imageLink,
 
         });
       }, (error)=>{
@@ -132,7 +135,7 @@ export class DetailPage extends Component {
       <div>
 
         <img className = "center"
-             src ='http://duncansensei.com/dir/wp-content/uploads/2015/05/37745_nichijou-1024x640.jpg'
+             src = {this.state.imageLink}
              alt = "No Anime Pic"
              width = '500'
         />
