@@ -37,7 +37,7 @@ export class Home extends React.Component{
 
 
   getGalleryPanelContentAllAnime = () => {
-    this.setState({curTab: "all"});
+    //this.setState({curTab: "all"});
     if (this.state.error) {
       return <div>{this.state.error}</div>;
     }
@@ -90,7 +90,7 @@ export class Home extends React.Component{
   }
 
   getGalleryPanelContentFavAnimes = () => {
-    this.setState({curTab: "fav"});
+    //this.setState({curTab: "fav"});
     if (this.state.favAnimes && this.state.favAnimes.length > 0) {
       const images = this.state.favAnimes.map((anime) => {
         return {
@@ -121,7 +121,7 @@ export class Home extends React.Component{
     }
   }
   getGalleryPanelContentRecommendAnimes = () => {
-    this.setState({curTab: "rec"});
+    //this.setState({curTab: "rec"});
     if (this.state.recommendAnimes && this.state.recommendAnimes.length > 0) {
       const images = this.state.recommendAnimes.map((anime) => {
         console.log("gagaggaaga");
@@ -165,7 +165,7 @@ export class Home extends React.Component{
 
 
   getGalleryPanelContentWishAnimes = () => {
-    this.setState({curTab: "wish"});
+    //this.setState({curTab: "wish"});
     if (this.state.wishAnimes && this.state.wishAnimes.length > 0) {
       const images = this.state.wishAnimes.map((anime) => {
         return {
@@ -384,8 +384,11 @@ export class Home extends React.Component{
     else if (key === "2"){
       this.setState({curTab: "fav"});
     }
-    else{
+    else if (key === "3"){
       this.setState({curTab: "rec"});
+    }
+    else if (key === "4"){
+      this.setState({curTab: "wish"});
     }
   }
   render(){
