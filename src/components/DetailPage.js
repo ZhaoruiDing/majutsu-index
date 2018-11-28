@@ -41,6 +41,7 @@ export class DetailPage extends Component {
   loadDetailPage = ()=>{
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     console.log(typeof(this.state.animeID));
+    console.log(this.state.animeID);
     $.ajax({
       url: `${API_ROOT}/detail?UserEmail=${UserEmail}&animeID=${toString(this.state.animeID)}`,
       method: 'GET',

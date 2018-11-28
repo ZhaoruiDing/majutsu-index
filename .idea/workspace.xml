@@ -78,8 +78,8 @@
           <file leaf-file-name="DetailPage.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/DetailPage.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="441">
-                  <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+                <state relative-caret-position="411">
+                  <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                     <element signature="e#115#143#0" expanded="true" />
@@ -421,12 +421,12 @@
       <workItem from="1541009604065" duration="1118000" />
       <workItem from="1543197992209" duration="20396000" />
       <workItem from="1543273612212" duration="25106000" />
-      <workItem from="1543372889583" duration="11620000" />
+      <workItem from="1543372889583" duration="11773000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112123000" />
+    <option name="totallyTimeSpent" value="112276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -872,8 +872,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DetailPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+        <state relative-caret-position="411">
+          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="e#115#143#0" expanded="true" />
