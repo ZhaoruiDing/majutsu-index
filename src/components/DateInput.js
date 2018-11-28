@@ -9,10 +9,14 @@ export class DateInput extends React.Component{
     }
 
     getMonth = (value) => {
+      console.log(value);
+      console.log(typeof (value));
       this.setState({month: value});
     }
 
     getYear = (value) => {
+      console.log(value);
+      console.log(typeof (value));
       this.setState({year: value});
     }
     onClick = () =>{

@@ -29,8 +29,10 @@ export class DetailPage extends Component {
    tags: "",
    likestatus: 0,
    watchstatus: "",
-   rate: 0,
+   rate: "",
    imageLink: "",
+   userrate: 0,
+   rate: "",
 
  }
 
@@ -63,6 +65,7 @@ export class DetailPage extends Component {
           watchstatus:response.watchstatus,
           rate: response.rate,
           imageLink: response.imageLink,
+          userrate: response.userrate,
 
         });
       }, (error)=>{
@@ -108,15 +111,15 @@ export class DetailPage extends Component {
 //以前用来玩rate的
   handleRateChange = (value) => {
    console.log(value);
-   this.setState({rate: value});
+   this.setState({userrate: value});
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     $.ajax({
       url: `${API_ROOT}/rate`,
       method:'POST',
       data:JSON.stringify({
         email: UserEmail,
-        rate: value,
-        animeID: this.animeID,
+        userrate: value,
+        animeID: this.state.animeID,
       }),
     }).then((response)=>{
       // message.success(response);
@@ -167,7 +170,7 @@ export class DetailPage extends Component {
 
         <h3 className="text" >Tags: {this.CreateTags()} </h3>
 
-        <h3 className="text" >Rate: <Rate onChange={this.handleRateChange} value={this.state.rate} /> </h3>
+        <h3 className="text" >Your Rate: <Rate onChange={this.handleRateChange} value={this.state.userrate} /> </h3>
 
         <div>
           <h3 className="text" >Plot:</h3>
