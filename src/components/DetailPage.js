@@ -77,9 +77,7 @@ export class DetailPage extends Component {
   }
   CreateTags = () =>{
     let ret = []
-    for (let i = 0; i < 3; i++){
-      ret.push(<Button key={i}>{this.props.Tags[i]}</Button>)
-    }
+    ret.push(<Button>{this.state.tags}</Button>)
     return ret
   }
 
@@ -144,18 +142,19 @@ export class DetailPage extends Component {
         <img className = "center"
              src = {this.state.imageLink}
              alt = "No Anime Pic"
-             width = '500'
+             width = '300'
         />
 
         <div>
           <h2 className="center-text">{this.state.name}</h2>
 
-          <ul className="info">
-            <li> <strong>Released Year:</strong> {this.state.releaseYear}</li>
+          < ul className = "info" >
+            < li> < strong > Released Year: </strong> {this.state.releaseYear}</li >
             <li> <strong>Released Date:</strong> {this.state.releaseDate}</li>
             <li> <strong>Rating:</strong> {this.state.rate}</li>
             <li> <strong>Director:</strong> {this.state.director}</li>
             <li> <strong>Studio:</strong> {this.state.studio}</li>
+            < li > < strong > Tags: </strong> {this.state.tags}</li >
           </ul>
         </div>
 
@@ -166,8 +165,6 @@ export class DetailPage extends Component {
           <Radio.Button onClick={this.SwitchStatus.bind(this, "3")} value="3">Watched</Radio.Button>
           <Radio.Button onClick={this.SwitchStatus.bind(this, "4")} value="4">Dropped</Radio.Button>
         </Radio.Group></h3>
-
-        <h3 className="text" >Tags: {this.CreateTags()} </h3>
 
         <h3 className="text" >Your Rate: <Rate onChange={this.handleRateChange} value={this.state.userrate} /> </h3>
 
