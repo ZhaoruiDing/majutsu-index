@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d45d0c3d-307f-4c3f-802d-d2432c8caf4b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.js" afterDir="false" />
     </list>
@@ -20,8 +19,8 @@
           <file leaf-file-name="constants.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/constants.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+                <state>
+                  <caret column="2" selection-start-column="2" selection-end-column="2" />
                 </state>
               </provider>
             </entry>
@@ -155,7 +154,7 @@
             <entry file="file://$PROJECT_DIR$/src/components/Home.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="548">
-                  <caret line="615" column="73" lean-forward="true" selection-start-line="615" selection-start-column="73" selection-end-line="615" selection-end-column="73" />
+                  <caret line="351" column="18" lean-forward="true" selection-start-line="351" selection-start-column="18" selection-end-line="351" selection-end-column="18" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -437,12 +436,12 @@
       <workItem from="1543273612212" duration="25106000" />
       <workItem from="1543372889583" duration="17220000" />
       <workItem from="1543442830459" duration="393000" />
-      <workItem from="1543454385476" duration="1135000" />
+      <workItem from="1543454385476" duration="1196000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119251000" />
+    <option name="totallyTimeSpent" value="119312000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2056" y="-8" width="2064" height="1168" extended-state="6" />
@@ -889,15 +888,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Home.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="548">
-          <caret line="615" column="73" lean-forward="true" selection-start-line="615" selection-start-column="73" selection-end-line="615" selection-end-column="73" />
+          <caret line="351" column="18" lean-forward="true" selection-start-line="351" selection-start-column="18" selection-end-line="351" selection-end-column="18" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

@@ -330,9 +330,9 @@ export class Home extends React.Component{
         method: 'GET',
         headers: {},
     }).then((response)=>{
-          this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
-         // response = JSON.parse(response);
-         // this.setState({animes: response || [], loadingAnimes: false, error: ''});
+          //this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
+         response = JSON.parse(response);
+         this.setState({animes: response || [], loadingAnimes: false, error: ''});
         console.log(response);
       }, (error) => {
         this.setState({ loadingAnimes: false, error: error.responseText });
