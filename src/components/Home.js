@@ -432,7 +432,7 @@ export class Home extends React.Component{
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     this.setState({loadingWatchedAnimes: true, error:''});
     $.ajax({
-      url: `${API_ROOT}/animes/watched/?UserEmail=${UserEmail}`,
+      url: `${API_ROOT}/animes/watched?UserEmail=${UserEmail}`,
       method: 'GET',
       headers: {},
     }).then((response)=>{
@@ -453,7 +453,7 @@ export class Home extends React.Component{
     const UserEmail = localStorage.getItem(TOKEN_KEY);
     this.setState({loadingWatchingAnimes: true, error:''});
     $.ajax({
-      url: `${API_ROOT}/animes/watching/?UserEmail=${UserEmail}`,
+      url: `${API_ROOT}/animes/watching?UserEmail=${UserEmail}`,
       method: 'GET',
       headers: {},
     }).then((response)=>{
