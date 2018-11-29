@@ -20,13 +20,17 @@ export class Home extends React.Component{
     recommendAnimes: [],
     wishAnimes: [],
     popularAnimes: [],
+    watchedAnimes:[],
+    watchingAnimes: [],
     error:'',
     loadingAnimes: false,
     loadingFavAnimes: false,
     loadingRecommendAnimes: false,
     loadingWishAnimes: false,
     loadingPopularAnimes: false,
-    curTab: "all" //all, fav, rec, wish, popular
+    loadingWatchedAnimes: false,
+    loadingWatchingAnimes: false,
+    curTab: "all" //all, fav, rec, wish, popular, watched, watching
   }
 
   componentDidMount(){
@@ -35,6 +39,8 @@ export class Home extends React.Component{
     this.loadRecommendAnimes();
     this.loadWishAnimes();
     this.loadPopularAnimes();
+    this.loadWatchedAnimes();
+    this.loadWatchingAnimes();
   }
 
 
@@ -84,6 +90,8 @@ export class Home extends React.Component{
                       loadRecommendAnimes = {this.loadRecommendAnimes}
                       loadWishAnimes={this.loadWishAnimes}
                       loadPopularAnimes={this.loadPopularAnimes}
+                      loadWatchedAnimes={this.loadWatchedAnimes}
+                      loadWatchingAnimes={this.loadWatchingAnimes}
                       curTab = "all"
                       history={this.props.history}/>;
     }
@@ -119,6 +127,8 @@ export class Home extends React.Component{
                       loadRecommendAnimes = {this.loadRecommendAnimes}
                       loadWishAnimes={this.loadWishAnimes}
                       loadPopularAnimes={this.loadPopularAnimes}
+                      loadWatchedAnimes={this.loadWatchedAnimes}
+                      loadWatchingAnimes={this.loadWatchingAnimes}
                       curTab = "fav"/>;
     }
     else {
@@ -162,6 +172,8 @@ export class Home extends React.Component{
                       loadRecommendAnimes = {this.loadRecommendAnimes}
                       loadWishAnimes={this.loadWishAnimes}
                       loadPopularAnimes={this.loadPopularAnimes}
+                      loadWatchedAnimes={this.loadWatchedAnimes}
+                      loadWatchingAnimes={this.loadWatchingAnimes}
                       curTab = "rec"/>;
     }
     else {
@@ -196,6 +208,8 @@ export class Home extends React.Component{
                       loadRecommendAnimes = {this.loadRecommendAnimes}
                       loadWishAnimes={this.loadWishAnimes}
                       loadPopularAnimes={this.loadPopularAnimes}
+                      loadWatchedAnimes={this.loadWatchedAnimes}
+                      loadWatchingAnimes={this.loadWatchingAnimes}
                       curTab = "wish"/>;
     }
     else {
@@ -223,13 +237,85 @@ export class Home extends React.Component{
           //caption: post.message,
         }
       });
-      return <Gallery images={images} galleryType="Wish" animes={this.state.popularAnimes}
+      return <Gallery images={images} galleryType="Popular" animes={this.state.popularAnimes}
                       loadAnimes={this.loadAnimes}
                       loadFavoriteAnimes={this.loadFavoriteAnimes}
                       loadRecommendAnimes = {this.loadRecommendAnimes}
                       loadWishAnimes={this.loadWishAnimes}
                       loadPopularAnimes={this.loadPopularAnimes}
+                      loadWatchedAnimes={this.loadWatchedAnimes}
+                      loadWatchingAnimes={this.loadWatchingAnimes}
                       curTab = "popular"/>;
+    }
+    else {
+      return null;
+    }
+  }
+
+  getGalleryPanelContentWatchedAnimes = () => {
+    //this.setState({curTab: "wish"});
+    if (this.state.watchedAnimes && this.state.watchedAnimes.length > 0) {
+      const images = this.state.watchedAnimes.map((anime) => {
+        return {
+          //: anime.user,
+          src: anime.imageLink,
+          //src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
+          thumbnail: anime.imageLink,
+          thumbnailWidth: 200,
+          thumbnailHeight: 300,
+          name: anime.name,
+          //likestatus:anime.likestatus,
+          //watchstatus: anime.watchstatus,
+          likestatus: 0,
+          watchstatus: 0,
+          animeID: anime.animeID,
+          //caption: post.message,
+        }
+      });
+      return <Gallery images={images} galleryType="Watched" animes={this.state.watchedAnimes}
+                      loadAnimes={this.loadAnimes}
+                      loadFavoriteAnimes={this.loadFavoriteAnimes}
+                      loadRecommendAnimes = {this.loadRecommendAnimes}
+                      loadWishAnimes={this.loadWishAnimes}
+                      loadPopularAnimes={this.loadPopularAnimes}
+                      loadWatchedAnimes={this.loadWatchedAnimes}
+                      loadWatchingAnimes={this.loadWatchingAnimes}
+                      curTab = "watched"/>;
+    }
+    else {
+      return null;
+    }
+  }
+
+  getGalleryPanelContentWatchingAnimes = () => {
+    //this.setState({curTab: "wish"});
+    if (this.state.watchingAnimes && this.state.watchingAnimes.length > 0) {
+      const images = this.state.watchingAnimes.map((anime) => {
+        return {
+          //: anime.user,
+          src: anime.imageLink,
+          //src: 'https://i.kinja-img.com/gawker-media/image/upload/s--s1IAfVS_--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/kaprfadz9rnvypesa2u9.png',
+          thumbnail: anime.imageLink,
+          thumbnailWidth: 200,
+          thumbnailHeight: 300,
+          name: anime.name,
+          //likestatus:anime.likestatus,
+          //watchstatus: anime.watchstatus,
+          likestatus: 0,
+          watchstatus: 0,
+          animeID: anime.animeID,
+          //caption: post.message,
+        }
+      });
+      return <Gallery images={images} galleryType="Watching" animes={this.state.watchingAnimes}
+                      loadAnimes={this.loadAnimes}
+                      loadFavoriteAnimes={this.loadFavoriteAnimes}
+                      loadRecommendAnimes = {this.loadRecommendAnimes}
+                      loadWishAnimes={this.loadWishAnimes}
+                      loadPopularAnimes={this.loadPopularAnimes}
+                      loadWatchedAnimes={this.loadWatchedAnimes}
+                      loadWatchingAnimes={this.loadWatchingAnimes}
+                      curTab = "watching"/>;
     }
     else {
       return null;
@@ -244,9 +330,9 @@ export class Home extends React.Component{
         method: 'GET',
         headers: {},
     }).then((response)=>{
-          //this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
-         response = JSON.parse(response);
-         this.setState({animes: response || [], loadingAnimes: false, error: ''});
+          this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
+         // response = JSON.parse(response);
+         // this.setState({animes: response || [], loadingAnimes: false, error: ''});
         console.log(response);
       }, (error) => {
         this.setState({ loadingAnimes: false, error: error.responseText });
@@ -302,9 +388,9 @@ export class Home extends React.Component{
 
   loadWishAnimes = () =>{
     const UserEmail = localStorage.getItem(TOKEN_KEY);
-    this.setState({loadWishAnimes: true, error:''});
+    this.setState({loadingWishAnimes: true, error:''});
     $.ajax({
-      url: `${API_ROOT}/wish?UserEmail=${UserEmail}`,
+      url: `${API_ROOT}/animes/wish?UserEmail=${UserEmail}`,
       method: 'GET',
       headers: {},
     }).then((response)=>{
@@ -323,7 +409,7 @@ export class Home extends React.Component{
 
   loadPopularAnimes = () =>{
     const UserEmail = localStorage.getItem(TOKEN_KEY);
-    this.setState({loadPopularAnimes: true, error:''});
+    this.setState({loadingPopularAnimes: true, error:''});
     $.ajax({
       url: `${API_ROOT}/animes/popular?UserEmail=${UserEmail}`,
       method: 'GET',
@@ -335,6 +421,48 @@ export class Home extends React.Component{
         console.log(response);
       }, (error) => {
         this.setState({ loadingPopularAnimes: false, error: error.responseText });
+        console.log(error);
+      }
+    ).catch((error)=>{
+      console.log(error);
+    });
+  }
+
+  loadWatchedAnimes = () =>{
+    const UserEmail = localStorage.getItem(TOKEN_KEY);
+    this.setState({loadingWatchedAnimes: true, error:''});
+    $.ajax({
+      url: `${API_ROOT}/animes/watched/?UserEmail=${UserEmail}`,
+      method: 'GET',
+      headers: {},
+    }).then((response)=>{
+        //this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
+        response = JSON.parse(response);
+        this.setState({watchedAnimes: response || [], loadingWatchedAnimes: false, error: ''});
+        console.log(response);
+      }, (error) => {
+        this.setState({ loadingWatchedAnimes: false, error: error.responseText });
+        console.log(error);
+      }
+    ).catch((error)=>{
+      console.log(error);
+    });
+  }
+
+  loadWatchingAnimes = () =>{
+    const UserEmail = localStorage.getItem(TOKEN_KEY);
+    this.setState({loadingWatchingAnimes: true, error:''});
+    $.ajax({
+      url: `${API_ROOT}/animes/watching/?UserEmail=${UserEmail}`,
+      method: 'GET',
+      headers: {},
+    }).then((response)=>{
+        //this.setState({animes: dummy_animes, loadingAnimes: false, error: ''});
+        response = JSON.parse(response);
+        this.setState({watchingAnimes: response || [], loadingWatchingAnimes: false, error: ''});
+        console.log(response);
+      }, (error) => {
+        this.setState({ loadingWatchingAnimes: false, error: error.responseText });
         console.log(error);
       }
     ).catch((error)=>{
@@ -474,7 +602,7 @@ export class Home extends React.Component{
           <TabPane tab="Favorite" key="2" curTab="fav">
             {this.getGalleryPanelContentFavAnimes()}
           </TabPane>
-          <TabPane tab="You may like" key="3" curTab="rec">
+          <TabPane tab="You May Like" key="3" curTab="rec">
             {this.getGalleryPanelContentRecommendAnimes()}
           </TabPane>
           <TabPane tab="Wish List" key="4" curTab="wish">
@@ -483,6 +611,14 @@ export class Home extends React.Component{
 
           <TabPane tab="Popular Animes" key="5" curTab="popular">
             {this.getGalleryPanelContentPopularAnimes()}
+          </TabPane>
+
+          <TabPane tab="Watched Animes History" key="6" curTab="watched">
+            {this.getGalleryPanelContentWatchedAnimes()}
+          </TabPane>
+
+          <TabPane tab="You Are Watching" key="7" curTab="watching">
+            {this.getGalleryPanelContentWatchingAnimes()}
           </TabPane>
         </Tabs>,
       </div>
