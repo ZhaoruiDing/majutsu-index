@@ -83,7 +83,6 @@ export class Home extends React.Component{
           //caption: post.message,
         }
       });
-
       return <Gallery images={images} galleryType="All" animes={this.state.animes}
                       loadAnimes={this.loadAnimes}
                       loadFavoriteAnimes={this.loadFavoriteAnimes}

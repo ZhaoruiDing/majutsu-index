@@ -38,6 +38,7 @@ export class DetailPage extends Component {
 
  componentWillMount(){
    console.log("草泥马");
+   console.log(this.props.match.params);
    this.loadDetailPage();
  }
   loadDetailPage = ()=>{

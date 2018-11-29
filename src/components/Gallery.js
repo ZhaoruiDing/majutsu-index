@@ -37,9 +37,9 @@ class GalleryLow extends Component {
       })
     ).isRequired
   }
-  onSelectImage = (index, animes) =>{
-    console.log(this.state.animes[index].animeID);
-    this.props.history.push(`/detail/${this.state.animes[index].animeID}`);
+  onSelectImage = (index, animes) =>{;
+
+    this.props.history.push(`/detail/${this.props.animes[index].animeID}`);
     //加上id
   }
   render() {
@@ -68,7 +68,7 @@ class GalleryLow extends Component {
           customControls={[
             //<button key="deleteImage" onClick={this.deleteImage}>Delete Image</button>,
             <div key={this.state.animes[this.state.currentAnime].animeID}>
-              <LikeAndUnlikeButton curAnime={this.state.animes[this.state.currentAnime]} curTab={this.props.curTab} loadFavoriteAnimes = {this.props.loadFavoriteAnimes}/>
+              <LikeAndUnlikeButton curAnime={this.props.animes[this.state.currentAnime]} curTab={this.props.curTab} loadFavoriteAnimes = {this.props.loadFavoriteAnimes}/>
               {/*<WatchAndUnwatchButton curAnime={this.state.animes[this.state.currentAnime]} curTab={this.props.curTab} loadWishAnimes={this.props.loadWishAnimes}/>*/}
             </div>
 
